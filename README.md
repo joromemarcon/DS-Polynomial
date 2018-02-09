@@ -29,6 +29,7 @@ Polynomial Program – UML Class Relationship Diagram
 [ PLACE IMAGE HERE ]
 
 Polynomial Program – UML Driver Sequence Diagram
+
 [ PLACE IMAGE HERE ]
 
 
