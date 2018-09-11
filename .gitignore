@@ -47,3 +47,6 @@ gradle-app.setting
 
 # compiled files
 out/
+
+# mac os metafiles
+.DS_STORE
