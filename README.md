@@ -1,5 +1,5 @@
-# CS113-HW03-Polynomial
-## HW #3 for CS113 - Polynomial ADT, Implementation, and Menu Program Demo
+# CS113-HW02-Polynomial
+## HW #2 for CS113 - Polynomial ADT, Implementation, and Menu Program Demo
 
 > An abstract data type (ADT) is an object with a generic description independent of implementation details.  Examples of abstract objects include mathematical objects (like numbers, polynomials, integrals, vectors), physical objects (like pulleys, floating bodies, missiles), animate objects (Cats, Velociraptor, People) and objects that are abstract even in the natural language sense. You do not see Java in Cats. Only when you want to simulate a living Cat, you would think of a computer language. Similarly, gravity is an abstract concept. When you want to model it and want to predict how a falling object works, you would think of writing a program in Java.
 
