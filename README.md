@@ -9,7 +9,7 @@ We can represent a polynomial as an ordered list of terms, where the terms are o
 
 **Create an implementation of the ADT** described above to create and add polynomials.  Begin by defining a class `Term` that contains the exponent and coefficient.  This class should implement the `Comparable` interface by comparing the values of the exponents.  You should build a `Polynomial` class with a `LinkedList<Term>` instance variable, which specifically contains polynomial-related methods (like creating a polynomial, adding two polynomials, etc.).  You need not build your own linked list (homework for next week), use the built in `java.util.LinkedList`.  
 
-**Write a driver program** to demonstrate your `Polynomial` ADT implementation, with a menu program that allows a user to:
+**Write a driver/test program** to demonstrate your `Polynomial` ADT implementation, with a menu program that allows a user to:
 
 - edit the first polynomial (clear, create, and add terms)
 - edit the second polynomial (clear, create, and add terms)
