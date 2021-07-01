@@ -26,26 +26,47 @@ public class Term implements Comparable<Term>{
         this.coefficient = other.coefficient;;
 
     }
-
+    //+x^-2
     //constructor with string parameter
     public Term(String term){
         String[] p1arr = term.split("[x^]+");
-        //if term for ex = 2x^3 or 2x or +x^3 or -x or x
-        if(term.contains("x") && term.contains("^")){
-            this.exponent = Integer.parseInt(p1arr[1]);
-
-            if(p1arr[0] == "-") this.coefficient = -1;
-            if(p1arr[0] == "+") this.coefficient = 1;
-            else this.coefficient = Integer.parseInt(p1arr[0]);
+        if(term == "") {
+            this.coefficient = 0;
+            this.exponent = 0;
+        }
+        if(term.contains("+x") || term.contains("-x")){
+            if(term.contains("+") && !term.contains("^")) {
+                this.coefficient = 1;
+                this.exponent = 1;
             }
+            else if(term.contains("-") && !term.contains("^")) {
+                this.coefficient = -1;
+                this.exponent = 1;
+            }
+            else if(term.contains("-") && term.contains("^")){
+                String[] temp1 = term.split("[x^]+");
+                this.coefficient = -1;
+                this.exponent = Integer.parseInt(temp1[1]);
+            }
+            else if(term.contains("+") && term.contains("^")){
+                String[] temp2 = term.split("[x^]+");
+                this.coefficient = 1;
+                this.exponent = Integer.parseInt(temp2[1]);
+            }
+
+        }
+        else if(term.contains("x^")){
+            this.exponent = Integer.parseInt(p1arr[1]);
+            this.coefficient = Integer.parseInt(p1arr[0]);
+        }
         else if(term.contains("x") && !term.contains("^")){
             this.exponent = 1;
-
-            if(p1arr[0] == "-") this.coefficient = -1;
-            if(p1arr[0] == "+") this.coefficient = 1;
-            else this.coefficient = Integer.parseInt(p1arr[0]);
+            this.coefficient = Integer.parseInt(p1arr[0]);
         }
-        else if(!term.contains("x") && !term.contains("^")) this.coefficient = Integer.parseInt(p1arr[0]);
+        else {
+            this.exponent = 0;
+            this.coefficient = Integer.parseInt(term);
+        }
     }
 
     public void setCoefficient(int value){
@@ -63,21 +84,24 @@ public class Term implements Comparable<Term>{
     }
 
     //toString converts linkedList into string
-    public String toString(){
-        String exp;
-        String coeff = "";
+    public String toString() {
         String term = "";
-        if(this.exponent == 0) exp = "";
-        else if(this.exponent == 1) exp = "x";
-        else exp = "x^" + this.exponent;
+        if (this.coefficient == 0) return term;
+        if (this.exponent == 0) {
+            if (this.coefficient > 0) return term = "+" + this.coefficient;
+            else return term = term + this.coefficient;
+        } else if (this.exponent == 1) {
+            if (this.coefficient == 1) return term = "+x";
+            else if (this.coefficient == -1) return term = "-x";
+            else if (this.coefficient > 1) return term = "+" + this.coefficient + "x";
+            else if (this.coefficient < -1) return term = this.coefficient + "x";
+        } else if (this.exponent > 1 || this.exponent < 0) {
+            if (this.coefficient == 1) return term = "+x^" + this.exponent;
+            else if (this.coefficient == -1) return term = "-x^" + this.exponent;
+            else if (this.coefficient > 1) return term = "+" + this.coefficient + "x^" + this.exponent;
+            else if (this.coefficient < -1) return term = this.coefficient + "x^" + this.exponent;
+        }
 
-        if(this.coefficient > 1) coeff = "+" + this.coefficient;
-        else if(this.coefficient < 1) coeff = String.valueOf(this.coefficient);
-
-        if(this.coefficient == 0) return term;
-        if(this.coefficient == 1) coeff = "+";
-        if(this.coefficient == -1) coeff = "-";
-        term = coeff + exp;
         return term;
     }
 
