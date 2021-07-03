@@ -43,15 +43,13 @@ public class Term implements Comparable<Term>{
                 this.coefficient = -1;
                 this.exponent = 1;
             }
-            else if(term.contains("-") && term.contains("^")){
-                String[] temp1 = term.split("[x^]+");
+            else if(p1arr[0].contains("-") && term.contains("^")){
                 this.coefficient = -1;
-                this.exponent = Integer.parseInt(temp1[1]);
+                this.exponent = Integer.parseInt(p1arr[1]);
             }
-            else if(term.contains("+") && term.contains("^")){
-                String[] temp2 = term.split("[x^]+");
+            else if(p1arr[0].contains("+") && term.contains("^")){
                 this.coefficient = 1;
-                this.exponent = Integer.parseInt(temp2[1]);
+                this.exponent = Integer.parseInt(p1arr[1]);
             }
 
         }
